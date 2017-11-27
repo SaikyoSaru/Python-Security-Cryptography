@@ -40,12 +40,10 @@ def collectData(AbuIp, mixIp, pcap):
 
 def checkDisjoint(sets):
     disjoint_sets = []
-    not_disjoint_sets = []
     disjoint = True
     for s in sets:
         for n in disjoint_sets:
             if not s.isdisjoint(n):
-                not_disjoint_sets.append(s)
                 disjoint = False
                 break
         if (disjoint):
@@ -59,11 +57,11 @@ def exclusion(disSet, sets):
         for dis in disSet:
             if  not s.isdisjoint(dis):
                 disjoint.append(dis) # appends Ri
-
+                #if there is more than one set, it is not valid!
         if len(disjoint) == 1:
             old_Ri = disjoint[0]
             disSet.remove(old_Ri)
-            new_Ri = old_Ri & s
+            new_Ri = old_Ri & s # the intersection of the two sets
             disSet.append(new_Ri)
     result = [dis.pop() for dis in disSet]
     return (result)
@@ -76,7 +74,7 @@ def disclosureA(ip, mixIp, n , capfile):
     Learning phase
     """
     sets = collectData(ip, mixIp, capfile)
-    disSet, notDisSet = checkDisjoint(sets)
+    disSet = checkDisjoint(sets)
     """
     Exluding phase
     """
