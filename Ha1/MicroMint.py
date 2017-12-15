@@ -23,9 +23,7 @@ def MicroMint(u, k, c):
     t = 0 #starting time
     b = pow(2,u) # amount of bins
     c_c = 0 # coins created
-    #c_h = np.ndarray((b),int)
     c_h = [0]*(b) # holder of coins
-    #print len(c_h)
     while (c_c < c):
         t+=1
         i = random.randint(0,b-1)
@@ -34,6 +32,9 @@ def MicroMint(u, k, c):
             c_c+=1
 
     return t
+"""
+Example
+"""
 
 lam = 3.66 # the lambda value for 99.9% confidence interval
 res = [] # the matrix holding the samples

@@ -22,7 +22,7 @@ f.close()
 
 def merkelTree(i,j,leaves):
 
-    path = []
+    #path = []
     return recMerk(leaves)
 
 
@@ -55,46 +55,3 @@ leaves = leaves[2:]
 print ("merkleroot:", recMerk(i, j, leaves))
 print ("full path:", path)
 print ("path node at level",j,":", path[len(path)-j])
-
-
-"""
-lukes skit
-"""
-"""
-import hashlib
-import binascii
-
-#Merkle Tree
-
-
-# Open file and read in the lines to save in a list
-lines = [line.rstrip() for line in open("inputspv.txt")]
-
-sha1 = hashlib.sha1()
-
-s = str(lines[0])
-print("first:", s)
-
-for index in range(len(lines) - 1):
-    index += 1
-    #print(index)
-    if((lines[index])[0] == 'R'):
-        print("R")
-        add = str((lines[index].split('R'))[1])
-        print(add)
-        s = s + add
-        print(s)
-    else:
-        print("L")
-        add = str((lines[index].split('L'))[1])
-        print(add)
-        s = add + s
-        print(s)
-    sha1 = hashlib.sha1()
-    s = sha1.update(bytearray.fromhex(s))
-    s = sha1.digest()
-    s = (binascii.hexlify(s)).decode('ascii')
-    print(s)
-
-print("res:", s)
-"""

@@ -7,6 +7,7 @@ import socket
 import struct
 
 """
+Data collection
 ip : the ip of the target
 mixIp : the ip of the mixer
 pcap : the pcap file
@@ -37,7 +38,9 @@ def collectData(AbuIp, mixIp, pcap):
     if (len(tmp_set) != 0):
         sets.append(tmp_set)
     return sets
-
+"""
+checks and returns disjoint sets
+"""
 def checkDisjoint(sets):
     disjoint_sets = []
     disjoint = True
@@ -50,7 +53,9 @@ def checkDisjoint(sets):
             disjoint_sets.append(s)
         disjoint = True
     return disjoint_sets, not_disjoint_sets
-
+"""
+Exclusion part, finds the partners of the suspect
+"""
 def exclusion(disSet, sets):
     for s in sets:
         disjoint = []
@@ -65,10 +70,15 @@ def exclusion(disSet, sets):
             disSet.append(new_Ri)
     result = [dis.pop() for dis in disSet]
     return (result)
-
-def convert(ip): #converts ip to integer representation
+"""
+converts ip to integer representation
+"""
+def convert(ip):
     return struct.unpack("!I", socket.inet_aton(ip))[0]
 
+"""
+Main program
+"""
 def disclosureA(ip, mixIp, n , capfile):
     """
     Learning phase
@@ -88,6 +98,9 @@ def disclosureA(ip, mixIp, n , capfile):
     print("result:", sum_ip)
 
 
+"""
+Example:
+"""
 cap = open('cia.log.3.pcap','rb') # open file, read bytes
 capfile = savefile.load_savefile(cap, layers=2, verbose=True)
 ip = '61.152.13.37'
