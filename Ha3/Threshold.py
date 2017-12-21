@@ -1,5 +1,8 @@
 import sys
 
+"""
+Simple version of lagrange interpolation
+"""
 def simpLagrange(x,y):
     res = 0
     for i in range(len(y)):
@@ -10,7 +13,9 @@ def simpLagrange(x,y):
             s *= (x[j])/(x[j] - x[i])
         res += y[i]*s
     return res
-
+"""
+Threshold scheme
+"""
 def treshold(k, n, privPol, polShares, x, y):
     if (len(x) < k ):
         print("too few participants!!, get more friends!")
@@ -18,8 +23,8 @@ def treshold(k, n, privPol, polShares, x, y):
 
     f1 = sum(privPol) + sum(polShares)
     y.insert(0,f1)
-    simp = simpLagrange(x,y)
-    return simp
+    result = simpLagrange(x,y)
+    return result
 
 
 f1 = [15, 14, 18, 13, 6]

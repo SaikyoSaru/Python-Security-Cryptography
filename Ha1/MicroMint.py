@@ -41,6 +41,10 @@ res = [] # the matrix holding the samples
 width = 4783 # confidence interval width
 t_w = width*10 # the current width
 n = 0 # the amount of samples taken
+"""
+calculates the amount of turns turns needed to create the desired amount
+with an 99.9% confidence interval
+"""
 while(t_w > width):
     n += 1
     res.append(MicroMint(20,7,10000))

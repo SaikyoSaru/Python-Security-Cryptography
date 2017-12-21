@@ -6,6 +6,11 @@ import pandas as pd
 import binascii
 import matplotlib.pyplot as plt
 
+"""
+simulation of binding and concealing properties
+when truncating a hash
+"""
+
 def prob_bind(t, hash=hashlib.sha256):
 
     hash_0 = set()
@@ -38,6 +43,9 @@ def prob_bind(t, hash=hashlib.sha256):
 
     return bind, counter
 
+"""
+handling/plotting of data
+"""
 
 fin = []
 for i in range(60):

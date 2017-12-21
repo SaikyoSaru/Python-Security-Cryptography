@@ -4,7 +4,9 @@ import hashlib
 import binascii
 import numpy as np
 
-
+"""
+calculates the jacobi symbol
+"""
 def jacobi (a, m):
 	j = 1
 	a %= m
@@ -38,7 +40,9 @@ def pkg(id_, p, q, M, hash = hashlib.sha1):
         print ("nein")
     return r, id_t
 
-
+"""
+decryption of message
+"""
 def decrypt(r, M, bit_list):
     d_m = ""
     for bit in bit_list:
@@ -49,7 +53,9 @@ def decrypt(r, M, bit_list):
         else:
             d_m += '0'
     return d_m
-
+"""
+Cocks IBE-scheme
+"""
 def cocks(id_, p, q, bit_list, hash=hashlib.sha1):
     p = int(p, 16)
     q = int(q, 16)

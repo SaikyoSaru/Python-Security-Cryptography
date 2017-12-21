@@ -9,6 +9,8 @@ does a bitwiss xor
 def xor_b(var, key):
     return bytes(a ^ b for a, b in zip(var, key))
 
+
+
 def I2OSP(x, xLen):
     if (x > 256**xLen):
         print("integer too big!!")

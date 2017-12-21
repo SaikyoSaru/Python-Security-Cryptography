@@ -74,16 +74,20 @@ def fromByteToInt(n):
     return int.from_bytes(n, byteorder = 'big')
 
 """
+Converts from integer to hexadecimal representation
 """
 def intToHex(n):
     return str(n)
 
-
+"""
+Converts from hexadecimal to integer representation
+"""
 def hexToInt(n):
     return int(n, 16)
 
 
 """
+Phi function
 calculates phi(n)
 """
 def phi(n):

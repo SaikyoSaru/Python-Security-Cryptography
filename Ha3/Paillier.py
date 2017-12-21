@@ -3,7 +3,7 @@ import formulas as form
 
 
 """
-Least common multiplier
+Calculates the least common multiplier
 """
 def lcm(x, y):
    if x > y:
@@ -33,7 +33,9 @@ def Lfunc(x, n):
 
     return (x - 1) / n
 
-
+"""
+Paillier scheme
+"""
 def paillier(p, q, g, votes):
     n = p*q # 35
     phi = (q-1)*(p-1)
